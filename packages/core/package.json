@@ -1,0 +1,57 @@
+{
+  "name": "[LIB_NAME]",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.2.0",
+  "description": "[LIB_NAME] is a free and open-source discord bot framework focused on type-safety and ease of use.",
+  "author": "quantix-dev",
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://[LIB_NAME].quantix.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quantix-dev/[LIB_NAME].git",
+    "directory": "packages/core"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --cache --fix .",
+    "prepack": "unbuild"
+  },
+  "peerDependencies": {
+    "discord.js": "^14.15.3"
+  },
+  "dependencies": {
+    "[LIB_NAME]-cli": "workspace:*",
+    "discord.js": "^14.15.3"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.8",
+    "utf-8-validate": "^6.0.4",
+    "zlib-sync": "^0.1.9"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "devDependencies": {
+    "unbuild": "^2.0.0"
+  }
+}

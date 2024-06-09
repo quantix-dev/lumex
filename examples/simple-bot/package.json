@@ -1,0 +1,27 @@
+{
+  "name": "simple-bot",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.2.0",
+  "author": "quantix-dev",
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://[LIB_NAME].quantix.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quantix-dev/[LIB_NAME].git",
+    "directory": "examples/simple-bot"
+  },
+  "engines": {
+    "node": ">=20.14.0"
+  },
+  "scripts": {
+    "build": "[LIB_NAME] build",
+    "dev": "[LIB_NAME] dev"
+  },
+  "dependencies": {
+    "[LIB_NAME]": "workspace:*"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

@@ -1,0 +1,175 @@
+1 - HMR for commands when running in `[LIB_NAME] dev` 
+      - Only redeploy interactions when something like their name, description, or arguments change.
+2 - good stack trace / exception handling - it should try and point u to the location of the error.
+3 - respect rate limiting and don't bomb out
+4 - handle interactions intelligently (automatically deploy without requiring a user to create a script)
+5 - Auto Imports for composables (defineInteraction, etc)
+6 - Drivers? Or should I build in prisma? (I don't want vendor lock in)
+7 - defineModal, defineButton, defineSubcommand - composables
+      - defineSubcommand 
+8 - Middleware
+
+----
+# Configuration
+## Default Untyped config
+```ts
+export default {
+
+}
+```
+
+## Config with type helper
+```ts
+export default defineConfig({
+      name: "My Epic Bot"
+})
+```
+
+----
+# Define Syntax
+
+## Commands
+### Default (Object) Command Syntax
+```ts
+export default defineCommand({
+      name: 'ping',
+      description: 'Pings the bot and pongs it back!',
+      execute() {
+            $reply('Hello world.')
+      }
+})
+```
+
+### Type-First Command Syntax
+```ts
+interface MyCommand {
+      name: string
+}
+
+export default defineCommand<MyCommand>(() => {
+      const { name } = useArgs()
+      $reply(`Hello ${name}. How are you?`)
+})
+```
+
+## Modal
+### Default (Object) Modal Syntax
+```ts
+// ticket-modal.ts
+export default defineModal({
+      name: 'Open a ticket',
+      defer: true, // runs a mock $defer() at the start and uses the 'ephemeral' status
+      ephemeral: true,
+      inputs: {
+            subject: {
+                  min: 15,
+                  max: 75,
+                  required: true,
+                  type: TextInputStyle.Short// Discord.js input type
+            }
+      },
+      execute() {
+            const { subject } = useArgs()
+            $reply(`Ticket opened with subject: ${subject}`)
+      }
+})
+
+// ping.ts
+import TicketModal from './ticket-modal'
+
+export default defineCommand({
+      name: 'ticket',
+      embeds: [TicketModal],
+      execute() {
+            $showModal("open-ticket")
+      }
+})
+```
+
+----
+# Utils
+
+## `$reply`
+Replies to the interaction from the context.
+```ts
+const { edit } = $reply('Hello.')
+setTimeout(() => {
+  edit('Goodbye.')
+}, 5000)
+```
+
+## `$defer`
+Marks a command as deferred.
+```ts
+$defer(true) // ephemeral, true/false
+// Do some lengthy process
+$reply('Done processing.')
+```
+
+----
+# Composables
+
+## `useInteraction`
+Gets the current interaction object for the command.
+```ts
+export default defineCommand({
+      name: 'ping',
+      execute() {
+            const { name } = useInteract()
+            $reply(name) // outputs 'ping'
+      }
+})
+```
+
+## `useArgs`
+Gets the arguments passed to the interaction (typed)
+```ts
+export default defineCommand({
+      name: 'sayHello',
+      args: {
+            name: {
+                  type: String,
+                  required: true
+            }
+      },
+      execute() {
+            const { name } = useArgs()
+            $reply(`Hello ${name})
+      }
+})
+```
+
+----
+# Plugins
+
+## Default object syntax
+```ts
+// plugins/logger.ts
+export default definePlugin({
+      name: 'Logger',
+      setup() {
+            function log() {
+                  // ...
+            }
+
+            function warn() {
+                  // ...
+            }
+
+            function error() {
+                  // ...
+            }
+
+            return { log, warn, error }
+      }
+})
+
+// commands/ping.ts
+export default defineCommand({
+      name: 'ping',
+      execute() {
+            $log('Ping command ran.')
+            // do rest of command..
+      }
+})
+```

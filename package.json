@@ -1,0 +1,56 @@
+{
+  "name": "[LIB_NAME]-framework",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.2.0",
+  "description": "[LIB_NAME] is a free and open-source discord bot framework focused on type-safety and ease of use.",
+  "author": "quantix-dev",
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://[LIB_NAME].quantix.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quantix-dev/[LIB_NAME].git"
+  },
+  "engines": {
+    "node": ">=20.14.0"
+  },
+  "scripts": {
+    "build": "pnpm --filter './packages/**' prepack",
+    "cleanup": "rimraf 'packages/**/node_modules' 'node_modules'",
+    "coverage": "vitest run --coverage",
+    "dev:prepare": "pnpm --filter './packages/**' prepack --stub",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --cache --fix .",
+    "prepare": "husky",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@types/node": ">=20.14.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.20.0",
+    "@types/node": "^20.14.2",
+    "[LIB_NAME]": "workspace:*",
+    "[LIB_NAME]-cli": "workspace:*",
+    "eslint": "^9.4.0",
+    "husky": "^9.0.11",
+    "rimraf": "^5.0.7",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,md}": [
+      "eslint --cache --fix"
+    ]
+  },
+  "volta": {
+    "node": "20.14.0",
+    "pnpm": "9.2.0"
+  }
+}

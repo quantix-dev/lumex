@@ -12,6 +12,6 @@ interface Config {
   intents: BitFieldResolvable<GatewayIntentsString, number>
 }
 
-export function defineConfig(_config: Config) {
+export function defineBotConfig(_config: Config) {
   return _config
 }

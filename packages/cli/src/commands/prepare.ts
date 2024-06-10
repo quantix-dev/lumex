@@ -1,10 +1,9 @@
-import { env } from 'node:process'
 import { defineCommand } from 'citty'
 
 export default defineCommand({
   meta: {
-    name: 'build',
-    description: 'Builds the bot for use in production.',
+    name: 'prepare',
+    description: 'Generates type stubs for development.',
   },
   args: {
     cwd: {
@@ -13,6 +12,5 @@ export default defineCommand({
     },
   },
   run() {
-    env.NODE_ENV = 'production'
   },
 })

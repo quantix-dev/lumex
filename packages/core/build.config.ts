@@ -3,6 +3,9 @@ import { defineBuildConfig } from 'unbuild'
 export default defineBuildConfig({
   declaration: true,
   entries: ['src/index', 'src/config'],
+  dependencies: [
+    'lib-name-cli',
+  ],
   externals: [
     'discord.js',
     'bufferutil',

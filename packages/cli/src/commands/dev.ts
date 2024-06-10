@@ -3,8 +3,8 @@ import { defineCommand } from 'citty'
 
 export default defineCommand({
   meta: {
-    name: 'build',
-    description: 'Builds the bot for use in production.',
+    name: 'dev',
+    description: 'Runs the bot in development mode with HMR.',
   },
   args: {
     cwd: {
@@ -13,6 +13,6 @@ export default defineCommand({
     },
   },
   run() {
-    env.NODE_ENV = 'production'
+    env.NODE_ENV = 'development'
   },
 })

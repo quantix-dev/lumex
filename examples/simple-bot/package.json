@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build": "lib-name build",
-    "dev": "lib-name dev"
+    "dev": "lib-name dev",
+    "postinstall": "lib-name prepare"
   },
   "dependencies": {
     "lib-name": "link:../../packages/core"

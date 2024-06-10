@@ -1,6 +1,6 @@
-import { defineConfig } from 'lib-name/config'
+import { defineBotConfig } from 'lib-name/config'
 
-export default defineConfig({
+export default defineBotConfig({
   name: 'simple-bot',
   intents: [],
 })

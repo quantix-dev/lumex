@@ -1,3 +1,6 @@
-import { defineConfig } from '[LIB_NAME]'
+import { defineConfig } from '[LIB_NAME]/config'
 
-export default defineConfig({})
+export default defineConfig({
+  name: 'simple-bot',
+  intents: [],
+})

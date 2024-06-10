@@ -2,7 +2,7 @@ import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
   declaration: true,
-  entries: ['src/index'],
+  entries: ['src/index', 'src/config'],
   externals: [
     'discord.js',
     'bufferutil',
@@ -12,4 +12,5 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
   },
+  failOnWarn: false,
 })

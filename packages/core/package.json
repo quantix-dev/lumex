@@ -1,15 +1,15 @@
 {
-  "name": "[LIB_NAME]",
+  "name": "lib-name",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@9.2.0",
-  "description": "[LIB_NAME] is a free and open-source discord bot framework focused on type-safety and ease of use.",
+  "description": "lib-name is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://[LIB_NAME].quantix.dev",
+  "homepage": "https://lib-name.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/[LIB_NAME].git",
+    "url": "git+https://github.com/quantix-dev/lib-name.git",
     "directory": "packages/core"
   },
   "exports": {
@@ -39,7 +39,11 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "lib-name": "./bin/lib-name.mjs"
+  },
   "files": [
+    "bin",
     "dist"
   ],
   "scripts": {
@@ -51,8 +55,8 @@
     "discord.js": "^14.15.3"
   },
   "dependencies": {
-    "[LIB_NAME]-cli": "workspace:*",
-    "discord.js": "^14.15.3"
+    "discord.js": "^14.15.3",
+    "lib-name-cli": "workspace:*"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8",

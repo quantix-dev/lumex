@@ -1,7 +1,7 @@
 import { DefaultTheme, defineConfig } from 'vitepress'
 import { version, author } from '../package.json' assert { type: 'json' }
 
-const title = '[LIB_NAME]'
+const title = 'lib-name'
 const description = 'The free and open-source discord bot framework focused on type-safety and ease of use'
 
 const Nav: DefaultTheme.NavItem[] = [
@@ -10,11 +10,11 @@ const Nav: DefaultTheme.NavItem[] = [
     items: [
       {
         text: 'Release Notes',
-        link: 'https://github.com/quantix-dev/[LIB_NAME]/releases/latest',
+        link: 'https://github.com/quantix-dev/lib-name/releases/latest',
       },
       {
         text: 'Contributing',
-        link: 'https://github.com/quantix-dev/[LIB_NAME]/blob/main/CONTRIBUTING.md',
+        link: 'https://github.com/quantix-dev/lib-name/blob/main/CONTRIBUTING.md',
       },
     ],
   }
@@ -28,7 +28,7 @@ export default defineConfig({
   srcDir: 'src',
   outDir: './dist',
   head: [
-    ['link', { rel: 'icon', href: '/[LIB_NAME].svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/lib-name.svg', type: 'image/svg+xml' }],
     ['meta', { rel: 'author', content: author }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { name: 'og:title', content: title }],
@@ -46,7 +46,7 @@ export default defineConfig({
   },
 
   sitemap: {
-    hostname: 'https://[LIB_NAME].quantix.dev',
+    hostname: 'https://lib-name.quantix.dev',
   },
 
   themeConfig: {
@@ -57,11 +57,11 @@ export default defineConfig({
     },
     sidebar: {},
     editLink: {
-      pattern: 'https://github.com/quantix-dev/[LIB_NAME]/edit/main/docs/:path',
+      pattern: 'https://github.com/quantix-dev/lib-name/edit/main/docs/:path',
       text: 'Contribute to this page on GitHub',
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/quantix-dev/[LIB_NAME]' },
+      { icon: 'github', link: 'https://github.com/quantix-dev/lib-name' },
     ],
     footer: {
       message: "Released under the MIT License",

@@ -1,1 +1,1 @@
-# [LIB_NAME]
+# lib-name Core

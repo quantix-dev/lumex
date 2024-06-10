@@ -1,15 +1,15 @@
 {
-  "name": "[LIB_NAME]-framework",
+  "name": "lib-name-framework",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@9.2.0",
-  "description": "[LIB_NAME] is a free and open-source discord bot framework focused on type-safety and ease of use.",
+  "description": "lib-name is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://[LIB_NAME].quantix.dev",
+  "homepage": "https://lib-name.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/[LIB_NAME].git"
+    "url": "git+https://github.com/quantix-dev/lib-name.git"
   },
   "engines": {
     "node": ">=20.14.0"
@@ -36,10 +36,10 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.20.0",
     "@types/node": "^20.14.2",
-    "[LIB_NAME]": "workspace:*",
-    "[LIB_NAME]-cli": "workspace:*",
     "eslint": "^9.4.0",
     "husky": "^9.0.11",
+    "lib-name": "workspace:*",
+    "lib-name-cli": "workspace:*",
     "rimraf": "^5.0.7",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
@@ -51,6 +51,6 @@
   },
   "volta": {
     "node": "20.14.0",
-    "pnpm": "9.2.0"
+    "pnpm": "9.3.0"
   }
 }

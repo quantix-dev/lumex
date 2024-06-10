@@ -5,21 +5,21 @@
   "packageManager": "pnpm@9.2.0",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://[LIB_NAME].quantix.dev",
+  "homepage": "https://lib-name.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/[LIB_NAME].git",
+    "url": "git+https://github.com/quantix-dev/lib-name.git",
     "directory": "examples/simple-bot"
   },
   "engines": {
     "node": ">=20.14.0"
   },
   "scripts": {
-    "build": "[LIB_NAME] build",
-    "dev": "[LIB_NAME] dev"
+    "build": "lib-name build",
+    "dev": "lib-name dev"
   },
   "dependencies": {
-    "[LIB_NAME]": "workspace:*"
+    "lib-name": "workspace:*"
   },
   "volta": {
     "extends": "../../package.json"

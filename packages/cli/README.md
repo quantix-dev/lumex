@@ -1,1 +1,1 @@
-# [LIB_NAME] CLI
+# lib-name CLI

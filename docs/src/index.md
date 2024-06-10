@@ -1,15 +1,15 @@
 ---
-title: [LIB_NAME]
+title: lib-name
 titleTemplate: :title
 layout: home
 
 hero:
-  name: [LIB_NAME]
+  name: lib-name
   text: Text
   tagline: A free and open-source discord bot framework focused on type-safety and ease of use.
   image:
     src: /logo.svg
-    alt: [LIB_NAME]
+    alt: lib-name
     width: 300
   actions:
     - theme: brand
@@ -17,7 +17,7 @@ hero:
       link: /guide
     - theme: alt
       text: View on GitHub
-      link: https://github.com/quantix-dev/[LIB_NAME]
+      link: https://github.com/quantix-dev/lib-name
 features:
   - icon: 🏆
     title: Feature 1

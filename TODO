@@ -1,4 +1,4 @@
-1 - HMR for commands when running in `[LIB_NAME] dev` 
+1 - HMR for commands when running in `lib-name dev` 
       - Only redeploy interactions when something like their name, description, or arguments change.
 2 - good stack trace / exception handling - it should try and point u to the location of the error.
 3 - respect rate limiting and don't bomb out

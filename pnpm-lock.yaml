@@ -14,10 +14,10 @@ importers:
       '@types/node':
         specifier: ^20.14.2
         version: 20.14.2
-      '[LIB_NAME]':
+      'lib-name':
         specifier: workspace:*
         version: link:packages/core
-      '[LIB_NAME]-cli':
+      'lib-name-cli':
         specifier: workspace:*
         version: link:packages/cli
       eslint:
@@ -36,12 +36,6 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.14.2)
 
-  examples/simple-bot:
-    dependencies:
-      '[LIB_NAME]':
-        specifier: workspace:*
-        version: link:../../packages/core
-
   packages/cli:
     devDependencies:
       citty:
@@ -53,7 +47,7 @@ importers:
 
   packages/core:
     dependencies:
-      '[LIB_NAME]-cli':
+      'lib-name-cli':
         specifier: workspace:*
         version: link:../cli
       discord.js:

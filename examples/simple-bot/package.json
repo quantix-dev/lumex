@@ -19,7 +19,7 @@
     "dev": "lib-name dev"
   },
   "dependencies": {
-    "lib-name": "workspace:*"
+    "lib-name": "link:../../packages/core"
   },
   "volta": {
     "extends": "../../package.json"

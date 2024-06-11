@@ -1,5 +1,6 @@
 import { env } from 'node:process'
 import { defineCommand } from 'citty'
+import { consola } from 'consola'
 
 export default defineCommand({
   meta: {
@@ -14,5 +15,6 @@ export default defineCommand({
   },
   run() {
     env.NODE_ENV = 'production'
+    consola.info('Starting production build.')
   },
 })

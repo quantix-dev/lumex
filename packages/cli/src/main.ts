@@ -1,8 +1,8 @@
 import { defineCommand } from 'citty'
 import { description, name, version } from '../package.json' assert { type: 'json' }
 import { commands as subCommands } from './commands'
+import setupLogging from './utils/logging'
 
-// eslint-disable-next-line ts/no-unsafe-assignment
 export const main = defineCommand({
   meta: {
     name,
@@ -11,5 +11,6 @@ export const main = defineCommand({
   },
   subCommands,
   async setup(_ctx) {
+    setupLogging(_ctx.args._?.[0] === 'dev')
   },
-}) as any // required to resolve an issue with building. looks like cjs plugin is trying to build the .d.ts files for citty
+})

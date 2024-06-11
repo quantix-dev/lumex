@@ -1,4 +1,5 @@
 import { defineCommand } from 'citty'
+import { consola } from 'consola'
 
 export default defineCommand({
   meta: {
@@ -12,5 +13,6 @@ export default defineCommand({
     },
   },
   run() {
+    consola.success('Created types.')
   },
 })

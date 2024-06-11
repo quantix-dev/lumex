@@ -4,6 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  lib-name: workspace:*
+  lib-name-cli: workspace:*
+
 importers:
 
   .:
@@ -36,7 +40,17 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.14.2)
 
+  examples/simple-bot:
+    dependencies:
+      lib-name:
+        specifier: workspace:*
+        version: link:../../packages/core
+
   packages/cli:
+    dependencies:
+      consola:
+        specifier: ^3.2.3
+        version: 3.2.3
     devDependencies:
       citty:
         specifier: ^0.1.6

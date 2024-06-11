@@ -20,7 +20,7 @@
     "postinstall": "lib-name prepare"
   },
   "dependencies": {
-    "lib-name": "link:../../packages/core"
+    "lib-name": "latest"
   },
   "volta": {
     "extends": "../../package.json"

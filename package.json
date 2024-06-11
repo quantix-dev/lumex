@@ -44,6 +44,10 @@
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },
+  "resolutions": {
+    "lib-name": "workspace:*",
+    "lib-name-cli": "workspace:*"
+  },
   "lint-staged": {
     "*.{js,ts,md}": [
       "eslint --cache --fix"

@@ -1,0 +1,68 @@
+name: Deploy Docs
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths: ["docs/**/*.*", ".github/workflows/deploy-docs.yml"]
+
+defaults:
+  run:
+    working-directory: ./docs
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  DO_NOT_TRACK: 1
+  VOLTA_FEATURE_PNPM: 1
+
+jobs:
+  deploy:
+    name: Build & Deploy Docs
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    
+    permissions:
+      pages: write
+      id-token: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # We need all history for doc edit dates
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: '~/.local/share/pnpm/store'
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Setup node
+        uses: volta-cli/action@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build docs
+        run: pnpm run docs:build
+
+      - name: Configure gh pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+      - name: Deploy page
+        id: deployment
+        uses: actions/deploy-pages@v4

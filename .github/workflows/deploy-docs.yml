@@ -50,7 +50,7 @@ jobs:
         uses: volta-cli/action@v4
 
       - name: Install dependencies
-        run: pnpm install --filter=docs --frozen-lockfile
+        run: pnpm install --filter=docs --frozen-lockfile --ignore-scripts
 
       - name: Build docs
         run: pnpm run docs:build

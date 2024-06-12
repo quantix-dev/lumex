@@ -1,1 +1,1 @@
-# lib-name CLI
+# Lumina CLI

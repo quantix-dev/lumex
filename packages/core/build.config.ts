@@ -4,7 +4,7 @@ export default defineBuildConfig({
   declaration: true,
   entries: ['src/index', 'src/config'],
   dependencies: [
-    'lib-name-cli',
+    'lumina-cli',
   ],
   externals: [
     'discord.js',

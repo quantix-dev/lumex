@@ -5,22 +5,22 @@
   "packageManager": "pnpm@9.2.0",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://lib-name.quantix.dev",
+  "homepage": "https://lumina.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/lib-name.git",
+    "url": "git+https://github.com/quantix-dev/lumina.git",
     "directory": "examples/simple-bot"
   },
   "engines": {
     "node": ">=20.14.0"
   },
   "scripts": {
-    "build": "lib-name build",
-    "dev": "lib-name dev",
-    "postinstall": "lib-name prepare"
+    "build": "lumina build",
+    "dev": "lumina dev",
+    "postinstall": "lumina prepare"
   },
   "dependencies": {
-    "lib-name": "latest"
+    "lumina": "latest"
   },
   "volta": {
     "extends": "../../package.json"

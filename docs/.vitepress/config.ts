@@ -1,7 +1,8 @@
-import { DefaultTheme, defineConfig } from 'vitepress'
-import { version, author } from '../package.json' assert { type: 'json' }
+import type { DefaultTheme } from 'vitepress'
+import { defineConfig } from 'vitepress'
+import { author, version } from '../package.json'
 
-const title = 'lib-name'
+const title = 'Lumina'
 const description = 'The free and open-source discord bot framework focused on type-safety and ease of use'
 
 const Nav: DefaultTheme.NavItem[] = [
@@ -10,14 +11,14 @@ const Nav: DefaultTheme.NavItem[] = [
     items: [
       {
         text: 'Release Notes',
-        link: 'https://github.com/quantix-dev/lib-name/releases/latest',
+        link: 'https://github.com/quantix-dev/lumina/releases/latest',
       },
       {
         text: 'Contributing',
-        link: 'https://github.com/quantix-dev/lib-name/blob/main/CONTRIBUTING.md',
+        link: 'https://github.com/quantix-dev/lumina/blob/main/CONTRIBUTING.md',
       },
     ],
-  }
+  },
 ]
 
 // https://vitepress.vuejs.org/config/app-configs
@@ -28,7 +29,7 @@ export default defineConfig({
   srcDir: 'src',
   outDir: './dist',
   head: [
-    ['link', { rel: 'icon', href: '/lib-name.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
     ['meta', { rel: 'author', content: author }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { name: 'og:title', content: title }],
@@ -36,7 +37,7 @@ export default defineConfig({
     ['meta', { name: 'og:locale', content: 'en-GB' }],
     ['meta', { name: 'og:site_name', content: title }],
   ],
-  lang: "en-GB",
+  lang: 'en-GB',
   lastUpdated: true,
   cleanUrls: true,
 
@@ -46,7 +47,7 @@ export default defineConfig({
   },
 
   sitemap: {
-    hostname: 'https://lib-name.quantix.dev',
+    hostname: 'https://lumina.quantix.dev',
   },
 
   themeConfig: {
@@ -57,15 +58,15 @@ export default defineConfig({
     },
     sidebar: {},
     editLink: {
-      pattern: 'https://github.com/quantix-dev/lib-name/edit/main/docs/:path',
+      pattern: 'https://github.com/quantix-dev/lumina/edit/main/docs/:path',
       text: 'Contribute to this page on GitHub',
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/quantix-dev/lib-name' },
+      { icon: 'github', link: 'https://github.com/quantix-dev/lumina' },
     ],
     footer: {
-      message: "Released under the MIT License",
-      copyright: "Copyright © 2024-PRESENT Quantix"
-    }
+      message: 'Released under the LGPL-3.0 or later License',
+      copyright: 'Copyright © 2024-PRESENT Quantix',
+    },
   },
 })

@@ -1,15 +1,15 @@
 {
-  "name": "lib-name-cli",
+  "name": "lumina-cli",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@9.2.0",
-  "description": "CLI tool for lib-name.",
+  "description": "CLI tool for Lumina.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://lib-name.quantix.dev",
+  "homepage": "https://lumina.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/lib-name.git",
+    "url": "git+https://github.com/quantix-dev/lumina.git",
     "directory": "packages/cli"
   },
   "exports": {
@@ -24,13 +24,13 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./bin": "./bin/lib-name.mjs"
+    "./bin": "./bin/lumina.mjs"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "lib-name": "./bin/lib-name.mjs"
+    "lumina": "./bin/lumina.mjs"
   },
   "files": [
     "bin",

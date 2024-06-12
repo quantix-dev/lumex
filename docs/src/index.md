@@ -1,15 +1,15 @@
 ---
-title: lib-name
+title: Lumina
 titleTemplate: :title
 layout: home
 
 hero:
-  name: lib-name
+  name: Lumina
   text: Text
-  tagline: A free and open-source discord bot framework focused on type-safety and ease of use.
+  tagline: A free and open-source discord bot framework focused on developer experience.
   image:
     src: /logo.svg
-    alt: lib-name
+    alt: Lumina
     width: 300
   actions:
     - theme: brand
@@ -17,7 +17,7 @@ hero:
       link: /guide
     - theme: alt
       text: View on GitHub
-      link: https://github.com/quantix-dev/lib-name
+      link: https://github.com/quantix-dev/lumina
 features:
   - icon: 🏆
     title: Feature 1

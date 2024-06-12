@@ -1,15 +1,15 @@
 {
-  "name": "lib-name",
+  "name": "lumina",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@9.2.0",
-  "description": "lib-name is a free and open-source discord bot framework focused on type-safety and ease of use.",
+  "description": "Lumina is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://lib-name.quantix.dev",
+  "homepage": "https://lumina.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/lib-name.git",
+    "url": "git+https://github.com/quantix-dev/lumina.git",
     "directory": "packages/core"
   },
   "exports": {
@@ -40,7 +40,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "lib-name": "./bin/lib-name.mjs"
+    "lumina": "./bin/lumina.mjs"
   },
   "files": [
     "bin",
@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "discord.js": "^14.15.3",
-    "lib-name-cli": "workspace:*"
+    "lumina-cli": "latest"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8",

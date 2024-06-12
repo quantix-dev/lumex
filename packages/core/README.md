@@ -1,1 +1,1 @@
-# lib-name Core
+# Lumina Core

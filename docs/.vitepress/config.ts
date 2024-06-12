@@ -27,7 +27,6 @@ export default defineConfig({
   titleTemplate: title,
   description,
   srcDir: 'src',
-  outDir: './dist',
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
     ['meta', { rel: 'author', content: author }],

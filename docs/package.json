@@ -3,16 +3,31 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
+  "description": "Lumina is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
+  "license": "LGPL-3.0-or-later",
+  "homepage": "https://lumina.quantix.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quantix-dev/lumina.git",
+    "directory": "docs/"
+  },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
-  "volta": {
-    "extends": "../package.json"
+  "peerDependenciesMeta": {
+    "@algolia/client-search": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "vitepress": "^1.2.3"
+    "@vue/tsconfig": "^0.5.1",
+    "vitepress": "^1.2.3",
+    "vue": "^3.4.27"
+  },
+  "volta": {
+    "extends": "../package.json"
   }
 }

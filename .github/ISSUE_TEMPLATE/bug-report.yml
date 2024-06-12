@@ -1,0 +1,62 @@
+name: Bug Report
+description: Create a report to document an issue with Lumina to help us improve.
+title: '[Bug]: '
+labels: 🐛 bug
+assignees: quantix-dev
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: What area does this impact?
+      options:
+        - Lumina CLI
+        - Lumina Core
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: What OS are you seeing the problem on?
+      multiple: true
+      options:
+        - Windows
+        - MacOS
+        - Linux
+        - Other (Please Specify)
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Describe the steps to reproduce
+      description: How did you trigger the bug? Please provide a step by step explanation.
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+      render: bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell

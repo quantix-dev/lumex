@@ -2,7 +2,6 @@
   "name": "lumina",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@9.2.0",
   "description": "Lumina is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
@@ -63,10 +62,10 @@
     "utf-8-validate": "^6.0.4",
     "zlib-sync": "^0.1.9"
   },
-  "volta": {
-    "extends": "../../package.json"
-  },
   "devDependencies": {
     "unbuild": "^2.0.0"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

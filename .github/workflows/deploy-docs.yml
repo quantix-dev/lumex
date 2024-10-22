@@ -2,8 +2,8 @@ name: Deploy Docs
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
-    paths: ["docs/**/*.*", ".github/workflows/deploy-docs.yml"]
+    branches: [main]
+    paths: [docs/**/*.*, .github/workflows/deploy-docs.yml]
 
 defaults:
   run:
@@ -22,11 +22,11 @@ jobs:
     name: Build & Deploy Docs
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    
+
     permissions:
       pages: write
       id-token: write
-    
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -36,12 +36,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0
 
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
-          path: '~/.local/share/pnpm/store'
+          path: ~/.local/share/pnpm/store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-

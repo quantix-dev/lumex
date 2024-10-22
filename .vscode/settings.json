@@ -10,10 +10,6 @@
     "editor.detectIndentation": false
   },
 
-  // Enable the ESlint flat config support
-  // (remove this if your ESLint extension above v3.0.5)
-  "eslint.experimental.useFlatConfig": true,
-
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
@@ -24,47 +20,59 @@
     "source.organizeImports": "never"
   },
 
+  "eslint.options": {
+    "flags": [
+      "unstable_ts_config"
+    ]
+  },
+  "eslint.runtime": "node",
+
   // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
     {
       "rule": "style/*",
-      "severity": "off"
-    },
-    {
-      "rule": "format/*",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*-indent",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*-spacing",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*-spaces",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*-order",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*-dangle",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*-newline",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*quotes",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     },
     {
       "rule": "*semi",
-      "severity": "off"
+      "severity": "off",
+      "fixable": true
     }
   ],
 
@@ -78,17 +86,10 @@
     "html",
     "markdown",
     "json",
+    "json5",
     "jsonc",
     "yaml",
     "toml",
-    "xml",
-    "gql",
-    "graphql",
-    "astro",
-    "css",
-    "less",
-    "scss",
-    "pcss",
-    "postcss"
+    "xml"
   ]
 }

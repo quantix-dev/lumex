@@ -16,22 +16,19 @@ type EnvConfig<T extends Record<string, any>, Path extends string = ''> = {
       : never
 }
 
+/**
+ * Runtime configuration values.
+ */
 export interface RuntimeConfig {
   /**
-   * The production bot token.
+   * The bot token.
    */
-  botToken: string
+  botToken?: string
 
   /**
-   * The development bot token.
-   * Uses the {@link RuntimeConfig.botToken | botToken} if a value is not provided.
+   * The development guild(s).
    */
-  devToken?: string
-
-  /**
-   * The development guild.
-   */
-  devGuild?: string
+  devGuild?: string | string[]
 
   /**
    * The public values accessible from interactions, plugins, etc.
@@ -39,6 +36,9 @@ export interface RuntimeConfig {
   public?: Record<string, any>
 }
 
+/**
+ * Configuration for the lumina library.
+ */
 export interface LuminaConfig {
   /**
    * The name of the bot.
@@ -46,10 +46,9 @@ export interface LuminaConfig {
   name: string
 
   /**
-   * Discord intents to enable for this connection.
-   * @see {@link https://discord.com/developers/docs/topics/gateway#list-of-intents}
+   * Discord client options.
    */
-  intents: ClientOptions['intents']
+  bot: Omit<ClientOptions, 'makeCache' | 'presence' | 'jsonTransformer'>
 
   /**
    * Runtime bot configuration.

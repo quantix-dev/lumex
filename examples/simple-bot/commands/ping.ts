@@ -1,8 +1,12 @@
-/* eslint-disable ts/no-unsafe-call  */
-export default defineCommand({
+import { defineInteraction } from 'lumina'
+
+export default defineInteraction({
   name: 'ping',
-  description: 'Pings the bot and returns the response time.',
-  execute() {
-    $reply('Pong!')
+  options: {
+    name: {
+      type: Object,
+    },
+  },
+  execute({ props: _props }) {
   },
 })

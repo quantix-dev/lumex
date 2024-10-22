@@ -4,11 +4,15 @@ import antfu from '@antfu/eslint-config'
 // https://github.com/antfu/eslint-config
 export default antfu({
   stylistic: {
-    indent: 2,
-    quotes: 'single',
+    overrides: {
+      'style/function-paren-newline': ['error', 'consistent']
+    }
   },
 
   typescript: {
-    tsconfigPath: ['./tsconfig.json', './examples/*/tsconfig.json', './docs/tsconfig.json'],
+    parserOptions: {
+      projectService: true,
+      tsconfigRootDir: import.meta.dirname
+    }
   },
 })

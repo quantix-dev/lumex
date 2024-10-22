@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "discord.js": "^14.15.3",
-    "lumina-cli": "latest"
+    "@lumina/cli": "latest"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8",

@@ -20,7 +20,7 @@
     "postinstall": "lumina prepare"
   },
   "dependencies": {
-    "lumina": "latest"
+    "@lumina/core": "latest"
   },
   "volta": {
     "extends": "../../package.json"

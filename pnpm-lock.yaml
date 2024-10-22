@@ -5,8 +5,8 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  lumina: workspace:*
-  lumina-cli: workspace:*
+  '@lumina/core': workspace:*
+  '@lumina/cli': workspace:*
 
 importers:
 
@@ -15,6 +15,12 @@ importers:
       '@antfu/eslint-config':
         specifier: ^3.8.0
         version: 3.8.0(@typescript-eslint/utils@8.11.0(eslint@9.13.0(jiti@2.3.3))(typescript@5.6.3))(@vue/compiler-sfc@3.5.12)(eslint-plugin-format@0.1.2(eslint@9.13.0(jiti@2.3.3)))(eslint@9.13.0(jiti@2.3.3))(typescript@5.6.3)(vitest@2.1.3(@types/node@22.7.8))
+      '@lumina/cli':
+        specifier: workspace:*
+        version: link:packages/cli
+      '@lumina/core':
+        specifier: workspace:*
+        version: link:packages/core
       '@types/node':
         specifier: ^22.7.8
         version: 22.7.8
@@ -27,12 +33,6 @@ importers:
       husky:
         specifier: ^9.1.6
         version: 9.1.6
-      lumina:
-        specifier: workspace:*
-        version: link:packages/core
-      lumina-cli:
-        specifier: workspace:*
-        version: link:packages/cli
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -57,7 +57,7 @@ importers:
 
   examples/simple-bot:
     dependencies:
-      lumina:
+      '@lumina/core':
         specifier: workspace:*
         version: link:../../packages/core
 
@@ -75,12 +75,12 @@ importers:
 
   packages/core:
     dependencies:
+      '@lumina/cli':
+        specifier: workspace:*
+        version: link:../cli
       discord.js:
         specifier: ^14.15.3
         version: 14.15.3(bufferutil@4.0.8)(utf-8-validate@6.0.4)
-      lumina-cli:
-        specifier: workspace:*
-        version: link:../cli
     optionalDependencies:
       bufferutil:
         specifier: ^4.0.8

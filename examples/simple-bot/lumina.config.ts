@@ -1,5 +1,5 @@
 import process from 'node:process'
-import { defineLuminaConfig } from 'lumina/config'
+import { defineLuminaConfig } from '@lumina/core/config'
 
 export default defineLuminaConfig({
   name: 'simple-bot',

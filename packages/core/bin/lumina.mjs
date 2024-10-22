@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-import 'lumina-cli/bin'
+import '@lumina/cli/bin'

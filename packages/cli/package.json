@@ -1,14 +1,14 @@
 {
-  "name": "@lumina/cli",
+  "name": "@lumex/cli",
   "type": "module",
   "version": "0.0.0",
-  "description": "CLI tool for Lumina.",
+  "description": "CLI tool for Lumex.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://lumina.quantix.dev",
+  "homepage": "https://lumex.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/lumina.git",
+    "url": "git+https://github.com/quantix-dev/lumex.git",
     "directory": "packages/cli"
   },
   "exports": {
@@ -23,13 +23,13 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./bin": "./bin/lumina.mjs"
+    "./bin": "./bin/lumex.mjs"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "lumina": "./bin/lumina.mjs"
+    "lumex": "./bin/lumex.mjs"
   },
   "files": [
     "bin",

@@ -1,1 +1,1 @@
-# Lumina CLI
+# Lumex CLI

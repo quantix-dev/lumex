@@ -3,13 +3,13 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "description": "Lumina is a free and open-source discord bot framework focused on type-safety and ease of use.",
+  "description": "Lumex is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://lumina.quantix.dev",
+  "homepage": "https://lumex.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/lumina.git",
+    "url": "git+https://github.com/quantix-dev/lumex.git",
     "directory": "docs/"
   },
   "scripts": {

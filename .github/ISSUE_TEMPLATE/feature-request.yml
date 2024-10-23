@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to make Lumina better with your suggestions.
+        Thanks for taking the time to make Lumex better with your suggestions.
 
   - type: dropdown
     id: area
@@ -16,8 +16,8 @@ body:
       label: Area
       description: What area does this impact?
       options:
-        - Lumina CLI
-        - Lumina Core
+        - Lumex CLI
+        - Lumex Core
     validations:
       required: true
 

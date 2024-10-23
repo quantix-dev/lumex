@@ -1,1 +1,1 @@
-# Lumina Core
+# Lumex Core

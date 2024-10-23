@@ -2,8 +2,8 @@
 /node_modules
 package-lock.json
 
-# lumina
-/.lumina
+# lumex
+/.lumex
 
 # secrets
 .env

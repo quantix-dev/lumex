@@ -1,5 +1,5 @@
 name: Bug Report
-description: Create a report to document an issue with Lumina to help us improve.
+description: Create a report to document an issue with Lumex to help us improve.
 title: '[Bug]: '
 labels: 🐛 bug
 assignees: quantix-dev
@@ -16,8 +16,8 @@ body:
       label: Area
       description: What area does this impact?
       options:
-        - Lumina CLI
-        - Lumina Core
+        - Lumex CLI
+        - Lumex Core
     validations:
       required: true
 

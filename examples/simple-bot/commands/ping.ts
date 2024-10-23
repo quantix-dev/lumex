@@ -1,4 +1,4 @@
-import { defineInteraction } from '@lumina/core'
+import { defineInteraction } from '@lumex/core'
 
 export default defineInteraction({
   name: 'ping',

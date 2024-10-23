@@ -1,15 +1,15 @@
 ---
-title: Lumina
+title: Lumex
 titleTemplate: :title
 layout: home
 
 hero:
-  name: Lumina
+  name: Lumex
   text: Text
   tagline: A free and open-source discord bot framework focused on developer experience.
   image:
     src: /logo.svg
-    alt: Lumina
+    alt: Lumex
     width: 300
   actions:
     - theme: brand
@@ -17,7 +17,7 @@ hero:
       link: /guide
     - theme: alt
       text: View on GitHub
-      link: https://github.com/quantix-dev/lumina
+      link: https://github.com/quantix-dev/lumex
 features:
   - icon: 🏆
     title: Feature 1

@@ -2,7 +2,7 @@ import type { DefaultTheme } from 'vitepress'
 import { defineConfig } from 'vitepress'
 import { author, version } from '../package.json'
 
-const title = 'Lumina'
+const title = 'Lumex'
 const description = 'The free and open-source discord bot framework focused on type-safety and ease of use'
 
 const Nav: DefaultTheme.NavItem[] = [
@@ -11,11 +11,11 @@ const Nav: DefaultTheme.NavItem[] = [
     items: [
       {
         text: 'Release Notes',
-        link: 'https://github.com/quantix-dev/lumina/releases/latest',
+        link: 'https://github.com/quantix-dev/lumex/releases/latest',
       },
       {
         text: 'Contributing',
-        link: 'https://github.com/quantix-dev/lumina/blob/main/CONTRIBUTING.md',
+        link: 'https://github.com/quantix-dev/lumex/blob/main/CONTRIBUTING.md',
       },
     ],
   },
@@ -46,7 +46,7 @@ export default defineConfig({
   },
 
   sitemap: {
-    hostname: 'https://lumina.quantix.dev',
+    hostname: 'https://lumex.quantix.dev',
   },
 
   themeConfig: {
@@ -57,11 +57,11 @@ export default defineConfig({
     },
     sidebar: {},
     editLink: {
-      pattern: 'https://github.com/quantix-dev/lumina/edit/main/docs/:path',
+      pattern: 'https://github.com/quantix-dev/lumex/edit/main/docs/:path',
       text: 'Contribute to this page on GitHub',
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/quantix-dev/lumina' },
+      { icon: 'github', link: 'https://github.com/quantix-dev/lumex' },
     ],
     footer: {
       message: 'Released under the LGPL-3.0 or later License',

@@ -1,1 +1,1 @@
-# Lumina
+# Lumex

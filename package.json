@@ -1,16 +1,16 @@
 {
-  "name": "lumina",
+  "name": "lumex",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@9.12.2",
   "private": true,
-  "description": "Lumina is a free and open-source discord bot framework focused on type-safety and ease of use.",
+  "description": "Lumex is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
-  "homepage": "https://lumina.quantix.dev",
+  "homepage": "https://lumex.quantix.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quantix-dev/lumina.git"
+    "url": "git+https://github.com/quantix-dev/lumex.git"
   },
   "engines": {
     "node": ">=20.18.0"
@@ -41,15 +41,15 @@
     "eslint": "^9.13.0",
     "eslint-plugin-format": "^0.1.2",
     "husky": "^9.1.6",
-    "@lumina/core": "workspace:*",
-    "@lumina/cli": "workspace:*",
+    "@lumex/core": "workspace:*",
+    "@lumex/cli": "workspace:*",
     "rimraf": "^6.0.1",
     "typescript": "^5.6.3",
     "vitest": "^2.1.3"
   },
   "resolutions": {
-    "@lumina/core": "workspace:*",
-    "@lumina/cli": "workspace:*"
+    "@lumex/core": "workspace:*",
+    "@lumex/cli": "workspace:*"
   },
   "lint-staged": {
     "*.{js,ts,md}": [

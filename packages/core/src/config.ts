@@ -3,7 +3,7 @@ import type { ClientOptions } from 'discord.js'
 type UpperSnakeCase<T extends string> = Uppercase<T>
 
 const hint = Symbol('hint')
-type EnvValue<T, Path extends string, K extends string> = T & { [hint]?: `You can override this value with LUMINA${Path}_${UpperSnakeCase<K>}` }
+type EnvValue<T, Path extends string, K extends string> = T & { [hint]?: `You can override this value with LUMEX${Path}_${UpperSnakeCase<K>}` }
 type EnvConfig<T extends Record<string, any>, Path extends string = ''> = {
   [K in keyof T]?: K extends string
     ? unknown extends T[K]
@@ -37,9 +37,9 @@ export interface RuntimeConfig {
 }
 
 /**
- * Configuration for the lumina library.
+ * Configuration for the Lumex library.
  */
-export interface LuminaConfig {
+export interface LumexConfig {
   /**
    * The name of the bot.
    */
@@ -57,8 +57,8 @@ export interface LuminaConfig {
 }
 
 /**
- * Define Lumina config.
+ * Define Lumex config.
  */
-export function defineLuminaConfig(config: LuminaConfig) {
+export function defineLumexConfig(config: LumexConfig) {
   return config
 }

@@ -20,7 +20,7 @@
     "postinstall": "lumex prepare"
   },
   "dependencies": {
-    "@lumex/core": "latest"
+    "lumex": "latest"
   },
   "volta": {
     "extends": "../../package.json"

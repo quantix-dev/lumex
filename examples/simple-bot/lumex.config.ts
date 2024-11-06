@@ -1,5 +1,5 @@
 import process from 'node:process'
-import { defineLumexConfig } from '@lumex/core/config'
+import { defineLumexConfig } from 'lumex/config'
 
 export default defineLumexConfig({
   name: 'simple-bot',

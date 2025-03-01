@@ -1,7 +1,7 @@
 import { defineCommand } from 'citty'
 import { description, name, version } from '../package.json' assert { type: 'json' }
 import { commands as subCommands } from './commands'
-import setupLogging from './utils/logging'
+import setupLogging from './utils/logging.ts'
 
 export const main = defineCommand({
   meta: {

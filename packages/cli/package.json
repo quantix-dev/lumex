@@ -1,7 +1,7 @@
 {
   "name": "@lumex/cli",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "CLI tool for Lumex.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
@@ -33,12 +33,12 @@
   "scripts": {
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache --fix .",
-    "prepack": "unbuild"
+    "prepack": "tsdown"
   },
   "devDependencies": {
     "citty": "^0.1.6",
     "consola": "^3.4.0",
-    "unbuild": "^3.5.0"
+    "tsdown": "^0.15.4"
   },
   "volta": {
     "extends": "../../package.json"

@@ -1,7 +1,7 @@
 {
   "name": "lumex",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Lumex is a free and open-source discord bot framework focused on type-safety and ease of use.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
@@ -48,7 +48,7 @@
   "scripts": {
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache --fix .",
-    "prepack": "unbuild"
+    "prepack": "tsdown"
   },
   "peerDependencies": {
     "discord.js": "^14.15.3"
@@ -63,11 +63,9 @@
     "zlib-sync": "^0.1.9"
   },
   "devDependencies": {
-    "unbuild": "^3.5.0"
+    "tsdown": "^0.15.4"
   },
   "volta": {
-    "extends": "../../package.json",
-    "node": "20.18.0",
-    "pnpm": "9.12.2"
+    "extends": "../../package.json"
   }
 }

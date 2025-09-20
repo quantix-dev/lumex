@@ -1,5 +1,3 @@
 {
-  "extends": "./.lumex/tsconfig.json",
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+  "extends": "./.lumex/tsconfig.json"
 }

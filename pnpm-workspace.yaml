@@ -1,4 +1,10 @@
 packages:
-  - 'packages/**'
-  - 'examples/*'
+  - packages/**
+  - examples/*
   - docs/
+
+ignoredBuiltDependencies:
+  - bufferutil
+  - esbuild
+  - utf-8-validate
+  - zlib-sync

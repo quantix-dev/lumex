@@ -1,48 +1,32 @@
 {
   "name": "lumex",
   "type": "module",
-  "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.5.2",
-  "description": "Lumex is a free and open-source discord bot framework focused on type-safety and ease of use.",
-  "author": "quantix-dev",
-  "license": "LGPL-3.0-or-later",
-  "homepage": "https://lumex.quantix.dev",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quantix-dev/lumex.git"
-  },
+  "packageManager": "pnpm@10.17.0",
   "engines": {
     "node": ">=22.14.0"
   },
   "scripts": {
-    "build": "pnpm --filter './packages/**' prepack",
-    "cleanup": "rimraf 'packages/**/node_modules' 'node_modules'",
+    "build": "pnpm --filter './packages/*' prepack",
+    "cleanup": "rimraf --glob 'packages/*/{node_modules,dist}' 'examples/*/node_modules' 'node_modules'",
     "coverage": "vitest run --coverage",
-    "dev:prepare": "pnpm -r --filter './packages/**' --parallel prepack --stub",
+    "dev:prepare": "pnpm -r --filter './packages/*' --parallel prepack --stub",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --cache --fix",
     "prepare": "husky",
-    "publish": "pnpm --filter './packages/**' --access=public publish",
+    "publish": "pnpm --filter './packages/*' --access=public publish",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "@types/node": ">=22.13.0"
-  },
-  "peerDependenciesMeta": {
-    "@types/node": {
-      "optional": true
-    }
-  },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.3.0",
-    "@types/node": "^22.13.8",
-    "eslint": "^9.21.0",
+    "@antfu/eslint-config": "^5.4.1",
+    "@types/node": "^24.5.2",
+    "eslint": "^9.29.0",
     "eslint-plugin-format": "^1.0.1",
     "husky": "^9.1.7",
     "rimraf": "^6.0.1",
-    "typescript": "~5.8.2",
+    "tsdown": "^0.15.4",
+    "typescript": "~5.8.0",
     "vitest": "^3.0.7"
   },
   "resolutions": {
@@ -50,7 +34,7 @@
     "lumex": "workspace:*"
   },
   "volta": {
-    "node": "22.14.0",
-    "pnpm": "10.5.2"
+    "node": "24.8.0",
+    "pnpm": "10.17.0"
   }
 }

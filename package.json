@@ -10,7 +10,7 @@
     "build": "pnpm --filter './packages/*' prepack",
     "cleanup": "rimraf --glob 'packages/*/{node_modules,dist}' 'examples/*/node_modules' 'node_modules'",
     "coverage": "vitest run --coverage",
-    "dev:prepare": "pnpm -r --filter './packages/*' --parallel prepack --stub",
+    "dev:prepare": "pnpm -r --filter './packages/*' --parallel prepack",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --cache --fix",
     "prepare": "husky",

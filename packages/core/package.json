@@ -15,31 +15,22 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     },
     "./config": {
       "types": "./dist/config.d.ts",
       "import": {
-        "types": "./dist/config.d.mts",
-        "default": "./dist/config.mjs"
-      },
-      "require": {
-        "types": "./dist/config.d.cts",
-        "default": "./dist/config.cjs"
+        "types": "./dist/config.d.ts",
+        "default": "./dist/config.js"
       }
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "lumex": "./bin/lumex.mjs"
+    "lumex": "./bin/lumex.js"
   },
   "files": [
     "bin",
@@ -50,17 +41,10 @@
     "lint:fix": "eslint --cache --fix .",
     "prepack": "tsdown"
   },
-  "peerDependencies": {
-    "discord.js": "^14.15.3"
-  },
   "dependencies": {
+    "@lumex/build": "workspace:*",
     "@lumex/cli": "workspace:*",
-    "discord.js": "^14.18.0"
-  },
-  "optionalDependencies": {
-    "bufferutil": "^4.0.9",
-    "utf-8-validate": "^6.0.5",
-    "zlib-sync": "^0.1.9"
+    "discord.js": "^14.22.1"
   },
   "devDependencies": {
     "tsdown": "^0.15.4"

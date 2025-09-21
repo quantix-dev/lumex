@@ -10,6 +10,7 @@ export default defineLumexConfig({
 
   runtime: {
     botToken: process.env.LUMEX_BOT_TOKEN,
+    devToken: process.env.LUMEX_DEV_TOKEN,
     devGuild: process.env.LUMEX_DEV_GUILD,
   },
 })

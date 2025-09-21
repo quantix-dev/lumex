@@ -1,6 +1,9 @@
+import type { InputConfig } from 'c12'
 import type { ClientOptions } from 'discord.js'
+import type { SnakeCase } from 'scule'
+import { createDefineConfig } from 'c12'
 
-type UpperSnakeCase<T extends string> = Uppercase<T>
+type UpperSnakeCase<T extends string> = Uppercase<SnakeCase<T>>
 
 const hint = Symbol('hint')
 type EnvValue<T, Path extends string, K extends string> = T & { [hint]?: `You can override this value with LUMEX${Path}_${UpperSnakeCase<K>}` }
@@ -16,30 +19,25 @@ type EnvConfig<T extends Record<string, any>, Path extends string = ''> = {
       : never
 }
 
-/**
- * Runtime configuration values.
- */
-export interface RuntimeConfig {
+interface RuntimeConfig {
   /**
    * The bot token.
    */
   botToken?: string
 
   /**
+   * The development bot token.
+   * @default botToken
+   */
+  devToken?: string
+
+  /**
    * The development guild(s).
    */
   devGuild?: string | string[]
-
-  /**
-   * The public values accessible from interactions, plugins, etc.
-   */
-  public?: Record<string, any>
 }
 
-/**
- * Configuration for the Lumex library.
- */
-export interface LumexConfig {
+interface _LumexConfig {
   /**
    * The name of the bot.
    */
@@ -57,8 +55,11 @@ export interface LumexConfig {
 }
 
 /**
+ * Configuration for the Lumex library.
+ */
+export type LumexConfig = InputConfig<_LumexConfig>
+
+/**
  * Define Lumex config.
  */
-export function defineLumexConfig(config: LumexConfig) {
-  return config
-}
+export const defineLumexConfig = createDefineConfig<_LumexConfig>()

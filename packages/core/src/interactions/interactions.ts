@@ -16,14 +16,14 @@ type UserProp = typeof User
 /**
  * Valid option types for discord.js
  */
-type PropType =
-  | AttachmentProp
-  | BooleanConstructor
-  | ChannelProp
-  | NumberConstructor
-  | RoleProp
-  | StringConstructor
-  | UserProp
+type PropType
+  = | AttachmentProp
+    | BooleanConstructor
+    | ChannelProp
+    | NumberConstructor
+    | RoleProp
+    | StringConstructor
+    | UserProp
 
 /**
  * Lumex interaction prop.
@@ -37,30 +37,45 @@ interface Prop {
 type Props = Record<string, Prop>
 
 /**
+ * Retrieves the required props from a {@link Props} object.
+ */
+type RequiredProps<T extends Props> = {
+  [K in keyof T]: T[K] extends { required: true } ? K : never
+}[keyof T]
+
+type OptionalProps<T extends Props> = Exclude<keyof T, RequiredProps<T>>
+
+/**
+ * Determines the native type for a given property value.
+ */
+type DeterminePropType<T extends Prop> = T['type'] extends AttachmentProp
+  ? DiscordAttachment
+  : T['type'] extends BooleanConstructor
+    ? boolean
+    : T['type'] extends ChannelProp
+      ? DiscordChannel
+      : T['type'] extends NumberConstructor
+        ? number
+        : T['type'] extends RoleProp
+          ? DiscordRole
+          : T['type'] extends StringConstructor
+            ? string
+            : T['type'] extends UserProp
+              ? DiscordUser
+              : never
+/**
  * Utility to extract types from props definition.
  */
 type ExtractProps<T extends Props> = {
-  [K in keyof T]: T[K]['type'] extends AttachmentProp
-    ? DiscordAttachment
-    : T[K]['type'] extends BooleanConstructor
-      ? boolean
-      : T[K]['type'] extends ChannelProp
-        ? DiscordChannel
-        : T[K]['type'] extends NumberConstructor
-          ? number
-          : T[K]['type'] extends RoleProp
-            ? DiscordRole
-            : T[K]['type'] extends StringConstructor
-              ? string
-              : T[K]['type'] extends UserProp
-                ? DiscordUser
-                : never
+  [K in keyof Pick<T, RequiredProps<T>>]: DeterminePropType<T[K]>
+} & {
+  [K in keyof Pick<T, OptionalProps<T>>]?: DeterminePropType<T[K]>
 }
 
 /**
  * Lumex interaction.
  */
-interface Interaction<T extends Props, PropCtx extends Record<keyof T, unknown> = ExtractProps<T>> {
+interface Interaction<T extends Props, PropCtx = ExtractProps<T>> {
   /**
    * @see {@link SlashCommandBuilder.name}
    */

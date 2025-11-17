@@ -4,11 +4,11 @@
   "private": true,
   "packageManager": "pnpm@10.17.0",
   "engines": {
-    "node": ">=22.14.0"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "build": "pnpm --filter './packages/*' prepack",
-    "cleanup": "rimraf --glob 'packages/*/{node_modules,dist}' 'examples/*/node_modules' 'node_modules'",
+    "cleanup": "rimraf --glob '{docs,examples,packages}/*/{node_modules,dist}' 'node_modules'",
     "coverage": "vitest run --coverage",
     "dev:prepare": "pnpm -r --filter './packages/*' --parallel prepack",
     "lint": "eslint . --cache",
@@ -19,22 +19,22 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.4.1",
-    "@types/node": "^24.5.2",
-    "eslint": "^9.29.0",
-    "eslint-plugin-format": "^1.0.1",
-    "husky": "^9.1.7",
-    "rimraf": "^6.0.1",
-    "tsdown": "^0.15.4",
-    "typescript": "~5.8.0",
-    "vitest": "^3.0.7"
+    "@antfu/eslint-config": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-format": "catalog:",
+    "husky": "catalog:",
+    "rimraf": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "resolutions": {
     "@lumex/cli": "workspace:*",
     "lumex": "workspace:*"
   },
   "volta": {
-    "node": "24.9.0",
-    "pnpm": "10.17.1"
+    "node": "24.11.1",
+    "pnpm": "10.22.0"
   }
 }

@@ -36,9 +36,9 @@
     "prepack": "tsdown"
   },
   "devDependencies": {
-    "citty": "^0.1.6",
-    "consola": "^3.4.0",
-    "tsdown": "^0.15.4"
+    "citty": "catalog:",
+    "consola": "catalog:",
+    "tsdown": "catalog:"
   },
   "volta": {
     "extends": "../../package.json"

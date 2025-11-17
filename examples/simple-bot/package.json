@@ -20,6 +20,7 @@
     "postinstall": "lumex prepare"
   },
   "dependencies": {
+    "discord.js": "^14.22.1",
     "lumex": "workspace:*"
   },
   "volta": {

@@ -1,3 +1,5 @@
+catalogMode: strict
+shellEmulator: true
 packages:
   - packages/**
   - examples/*

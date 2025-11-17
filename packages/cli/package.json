@@ -35,9 +35,6 @@
     "lint:fix": "eslint --cache --fix .",
     "prepack": "tsdown"
   },
-  "dependencies": {
-    "@lumex/build": "workspace:*"
-  },
   "devDependencies": {
     "citty": "^0.1.6",
     "consola": "^3.4.0",

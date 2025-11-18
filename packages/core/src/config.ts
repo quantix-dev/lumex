@@ -32,9 +32,9 @@ interface RuntimeConfig {
   devToken?: string
 
   /**
-   * The development guild(s).
+   * The development guild.
    */
-  devGuild?: string | string[]
+  devGuild?: string
 }
 
 interface _LumexConfig {

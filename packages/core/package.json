@@ -13,24 +13,24 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/index.d.mts",
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     },
     "./config": {
-      "types": "./dist/config.d.ts",
+      "types": "./dist/config.d.mts",
       "import": {
-        "types": "./dist/config.d.ts",
-        "default": "./dist/config.js"
+        "types": "./dist/config.d.mts",
+        "default": "./dist/config.mjs"
       }
     }
   },
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "bin": {
-    "lumex": "./bin/lumex.js"
+    "lumex": "./bin/lumex.mjs"
   },
   "files": [
     "bin",

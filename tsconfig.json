@@ -3,7 +3,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext"],
-    "module": "ESNext",
+    "moduleDetection": "force",
+    "module": "preserve",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "types": [
@@ -13,17 +14,26 @@
     "allowImportingTsExtensions": true,
     "strict": true,
     "strictNullChecks": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
     "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
   "exclude": [
     "**/dist/**",
+    "**/docs/**",
     "**/examples/**",
     "**/node_modules/**"
   ]

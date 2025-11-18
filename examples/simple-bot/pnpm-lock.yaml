@@ -8,6 +8,6 @@ importers:
 
   .:
     dependencies:
-      lib-name:
+      lumex:
         specifier: link:../../packages/core
         version: link:../../packages/core

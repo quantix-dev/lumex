@@ -2,7 +2,7 @@
   "name": "lumex",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@10.22.0",
   "engines": {
     "node": ">=22.12.0"
   },

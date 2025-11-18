@@ -31,3 +31,5 @@ ignoredBuiltDependencies:
   - zlib-sync
 
 shellEmulator: true
+
+verifyDepsBeforeRun: install

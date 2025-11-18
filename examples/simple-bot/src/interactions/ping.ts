@@ -1,17 +1,8 @@
-import { defineInteraction, Role } from 'lumex'
+import { defineInteraction } from 'lumex'
 
 export default defineInteraction({
   name: 'ping',
-  options: {
-    name: {
-      type: String,
-      required: true,
-    },
-    role: {
-      type: Role,
-    },
-  },
-  execute() {
-
+  async execute() {
+    $reply('Pong!')
   },
 })

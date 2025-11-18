@@ -7,13 +7,13 @@ import type { CommandDef } from 'citty'
  * @param cmd.default The default export of the command.
  * @returns The imported command definition.
  */
-const _cmdDefault = <T extends CommandDef<any>>(cmd: { default: T }) => cmd.default
+const cmdDefault = <T extends CommandDef<any>>(cmd: { default: T }) => cmd.default
 
 /**
  * Executable commands.
  */
 export const commands = {
-  build: () => import('./build').then(_cmdDefault),
-  dev: () => import('./dev').then(_cmdDefault),
-  prepare: () => import('./prepare').then(_cmdDefault),
+  build: () => import('./build').then(cmdDefault),
+  dev: () => import('./dev').then(cmdDefault),
+  prepare: () => import('./prepare').then(cmdDefault),
 } as const

@@ -11,9 +11,6 @@
     "url": "git+https://github.com/quantix-dev/lumex.git",
     "directory": "examples/simple-bot"
   },
-  "engines": {
-    "node": ">=22.12.0"
-  },
   "scripts": {
     "build": "lumex build",
     "dev": "lumex dev",

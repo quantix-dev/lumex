@@ -33,6 +33,9 @@
     "bin",
     "dist"
   ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache --fix .",

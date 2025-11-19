@@ -115,8 +115,17 @@ importers:
         specifier: workspace:*
         version: link:../../packages/core
 
+  packages/build:
+    devDependencies:
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.16.5(ms@2.1.3)(synckit@0.11.11)(typescript@5.9.3)
+
   packages/cli:
     devDependencies:
+      '@lumex/build':
+        specifier: workspace:*
+        version: link:../build
       citty:
         specifier: 'catalog:'
         version: 0.1.6

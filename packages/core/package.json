@@ -11,6 +11,9 @@
     "url": "git+https://github.com/quantix-dev/lumex.git",
     "directory": "packages/core"
   },
+  "bugs": {
+    "url": "https://github.com/quantix-dev/lumex/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",

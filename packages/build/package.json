@@ -1,15 +1,15 @@
 {
-  "name": "@lumex/cli",
+  "name": "@lumex/build",
   "type": "module",
   "version": "0.1.0",
-  "description": "CLI tool for Lumex.",
+  "description": "Build utilities for Lumex.",
   "author": "quantix-dev",
   "license": "LGPL-3.0-or-later",
   "homepage": "https://lumex.quantix.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/quantix-dev/lumex.git",
-    "directory": "packages/cli"
+    "directory": "packages/build"
   },
   "bugs": {
     "url": "https://github.com/quantix-dev/lumex/issues"
@@ -21,16 +21,11 @@
         "types": "./dist/index.d.mts",
         "default": "./dist/index.mjs"
       }
-    },
-    "./bin": "./bin/lumex.mjs"
+    }
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
-  "bin": {
-    "lumex": "./bin/lumex.mjs"
-  },
   "files": [
-    "bin",
     "dist"
   ],
   "scripts": {
@@ -39,9 +34,6 @@
     "prepack": "tsdown"
   },
   "devDependencies": {
-    "@lumex/build": "workspace:*",
-    "citty": "catalog:",
-    "consola": "catalog:",
     "tsdown": "catalog:"
   },
   "volta": {

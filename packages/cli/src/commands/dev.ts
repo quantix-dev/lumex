@@ -1,6 +1,6 @@
 import { env } from 'node:process'
 import { defineCommand } from 'citty'
-import { consola } from 'consola'
+import { importLumex } from '../utils/resolve.ts'
 
 export default defineCommand({
   meta: {
@@ -13,8 +13,14 @@ export default defineCommand({
       description: 'Current working directory',
     },
   },
-  run() {
+  async run({ args: { cwd } }) {
     env.NODE_ENV = 'development'
-    consola.info('Starting development build.')
+
+    // Load lumex
+    const core = await importLumex(cwd)
+    const lumex = core.loadLumex(cwd)
+
+    // Start build
+    core.build(lumex)
   },
 })

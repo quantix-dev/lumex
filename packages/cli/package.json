@@ -42,9 +42,10 @@
     "prepack": "tsdown"
   },
   "devDependencies": {
-    "@lumex/build": "workspace:*",
+    "@clack/prompts": "catalog:",
     "citty": "catalog:",
     "consola": "catalog:",
+    "exsolve": "catalog:",
     "tsdown": "catalog:"
   },
   "volta": {

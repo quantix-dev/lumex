@@ -1,8 +1,9 @@
-import { defineInteraction } from 'lumex'
+import { defineInteraction } from 'lumex/runtime'
 
 export default defineInteraction({
   name: 'ping',
   async execute() {
-    $reply('Pong!')
+    const { reply } = useInteraction()
+    reply('Pong!')
   },
 })

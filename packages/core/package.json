@@ -22,6 +22,13 @@
         "default": "./dist/index.mjs"
       }
     },
+    "./runtime": {
+      "types": "./dist/runtime/index.d.mts",
+      "import": {
+        "types": "./dist/runtime/index.d.mts",
+        "default": "./dist/runtime/inex.mjs"
+      }
+    },
     "./config": {
       "types": "./dist/config.d.mts",
       "import": {
@@ -52,7 +59,9 @@
   },
   "dependencies": {
     "@lumex/cli": "workspace:*",
+    "@parcel/watcher": "catalog:",
     "c12": "catalog:",
+    "consola": "catalog:",
     "scule": "catalog:"
   },
   "devDependencies": {

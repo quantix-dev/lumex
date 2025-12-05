@@ -22,18 +22,19 @@
         "default": "./dist/index.mjs"
       }
     },
-    "./runtime": {
-      "types": "./dist/runtime/index.d.mts",
-      "import": {
-        "types": "./dist/runtime/index.d.mts",
-        "default": "./dist/runtime/inex.mjs"
-      }
-    },
     "./config": {
       "types": "./dist/config.d.mts",
       "import": {
         "types": "./dist/config.d.mts",
         "default": "./dist/config.mjs"
+      }
+    },
+    "./package.json": "./package.json",
+    "./runtime": {
+      "types": "./dist/runtime/index.d.mts",
+      "import": {
+        "types": "./dist/runtime/index.d.mts",
+        "default": "./dist/runtime/inex.mjs"
       }
     }
   },

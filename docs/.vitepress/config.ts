@@ -1,9 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
+import { author, description, name, version } from 'lumex/package.json'
 import { defineConfig } from 'vitepress'
-import { author, version } from '../package.json'
-
-const title = 'Lumex'
-const description = 'The free and open-source discord bot framework focused on type-safety and ease of use'
 
 const Nav: DefaultTheme.NavItem[] = [
   {
@@ -23,18 +20,17 @@ const Nav: DefaultTheme.NavItem[] = [
 
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
-  title,
-  titleTemplate: title,
+  title: name,
   description,
   srcDir: 'src',
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
     ['meta', { rel: 'author', content: author }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { name: 'og:title', content: title }],
+    ['meta', { name: 'og:title', content: name }],
     ['meta', { name: 'og:description', content: description }],
     ['meta', { name: 'og:locale', content: 'en-GB' }],
-    ['meta', { name: 'og:site_name', content: title }],
+    ['meta', { name: 'og:site_name', content: name }],
   ],
   lang: 'en-GB',
   lastUpdated: true,

@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@vue/tsconfig": "catalog:",
+    "lumex": "workspace:*",
     "vitepress": "catalog:",
     "vue": "catalog:"
   },

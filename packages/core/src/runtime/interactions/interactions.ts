@@ -1,4 +1,4 @@
-import type { InteractionContextType } from 'discord.js'
+import type { InteractionContextType, SlashCommandBuilder } from 'discord.js'
 import type { ExtractOptions, Options } from './props.ts'
 
 /**
@@ -8,22 +8,24 @@ import type { ExtractOptions, Options } from './props.ts'
  */
 interface ApplicationCommand {
   /**
+   * name
+   * @description {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-naming|Name of command}, 1-32 characters
    * @see {@link SlashCommandBuilder.name}
    */
   name: string
 
   /**
-   * @see {@link SlashCommandBuilder.description}
-   */
-  description?: string
-
-  /**
+   * contexts
+   * @description {@link https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-context-types|Interaction context(s)} where the command can be used, only for globally-scoped commands.
    * @see {@link SlashCommandBuilder.contexts}
    */
   contexts?: InteractionContextType[]
 
   /**
+   * nsfw
+   * @description Indicates whether the command is {@link https://discord.com/developers/docs/interactions/application-commands#agerestricted-commands|age-restricted}
    * @see {@link SlashCommandBuilder.nsfw}
+   * @default false
    */
   nsfw?: boolean
 }
@@ -34,16 +36,25 @@ interface ApplicationCommand {
  */
 interface ChatInputCommand<T extends Options> extends ApplicationCommand {
   /**
+   * description
+   * @description Description for `CHAT_INPUT` commands, 1-100 characters
+   * @see {@link SlashCommandBuilder.description}
+   */
+  description?: string
+
+  /**
+   * options
+   * @description Parameters for the command, max of 25
    * @see {@link SlashCommandBuilder.options}
    */
   options?: T
 
   /**
-   * The command interaction execute function.
-   *
-   * @param props The interaction props.
+   * The slash command interaction execute function.
+   * @description Parameters for the command.
+   * @param options The interaction options.
    */
-  execute: (props: ExtractOptions<T>) => Promise<void>
+  execute: (options: ExtractOptions<T>) => Promise<void>
 }
 
 /**

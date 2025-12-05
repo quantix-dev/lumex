@@ -13,8 +13,23 @@ import type {
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure}
  */
 interface CommandOption<T, _Value> {
+  /**
+   * type
+   * @description Type of option.
+   */
   type: T
+
+  /**
+   * description
+   * @description 1-100 character description.
+   */
   description: string
+
+  /**
+   * required
+   * @description Whether the parameter is required or optional.
+   * @default false
+   */
   required?: boolean
 }
 
@@ -37,7 +52,8 @@ type BooleanOption = CommandOption<BooleanConstructor, boolean>
 export const Channel = Symbol('channel')
 interface ChannelOption extends CommandOption<typeof Channel, DiscordChannel> {
   /**
-   * The channels shown will be restricted to these types.
+   * channel_types
+   * @description The channels shown will be restricted to these types.
    */
   channelTypes?: ChannelType[]
 }
@@ -55,11 +71,14 @@ type MentionableOption = CommandOption<typeof Mentionable, DiscordMember | Disco
  */
 interface NumberOption extends CommandOption<NumberConstructor, number> {
   /**
-   * The minimum value permitted.
+   * min_value
+   * @description The minimum value permitted
    */
   minValue?: number
+
   /**
-   * The maximum value permitted.
+   * max_value
+   * @description The maximum value permitted
    */
   maxValue?: number
 }
@@ -75,11 +94,14 @@ type RoleOption = CommandOption<typeof Role, DiscordRole>
  */
 interface StringOption extends CommandOption<StringConstructor, string> {
   /**
-   * The minimum allowed length.
+   * min_length
+   * @description The minimum allowed length. (minimum of `0`, maximum of `6000`)
    */
   minLength?: number
+
   /**
-   * The maximum allowed length.
+   * max_length
+   * @description The maximum allowed length. (minimum of `1`, maximum of `6000`)
    */
   maxLength?: number
 }

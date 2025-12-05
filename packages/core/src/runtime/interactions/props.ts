@@ -1,66 +1,121 @@
-import type { Attachment as DiscordAttachment, Channel as DiscordChannel, Role as DiscordRole, User as DiscordUser } from 'discord.js'
-
-// Non primitive djs prop types
-export const Attachment = Symbol('attachment')
-type AttachmentProp = typeof Attachment
-
-export const Channel = Symbol('channel')
-type ChannelProp = typeof Channel
-
-export const Role = Symbol('role')
-type RoleProp = typeof Role
-
-export const User = Symbol('user')
-type UserProp = typeof User
+import type {
+  ChannelType,
+  Attachment as DiscordAttachment,
+  Channel as DiscordChannel,
+  GuildMember as DiscordMember,
+  Role as DiscordRole,
+  User as DiscordUser,
+} from 'discord.js'
 
 /**
- * Valid option types for discord.js
+ * Application Command Option
+ * @description Parameters for the command.
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure}
  */
-type PropType
-  = | AttachmentProp
-    | BooleanConstructor
-    | ChannelProp
-    | NumberConstructor
-    | RoleProp
-    | StringConstructor
-    | UserProp
-
-/**
- * Lumex interaction prop.
- */
-interface Prop {
-  type: PropType
-  description?: string
+interface CommandOption<T, _Value> {
+  type: T
+  description: string
   required?: boolean
 }
 
-export type Props = Record<string, Prop>
-
-// Retrieves the required props from a Props object.
-type RequiredProps<T extends Props> = { [K in keyof T]: T[K] extends { required: true } ? K : never }[keyof T]
-type OptionalProps<T extends Props> = Exclude<keyof T, RequiredProps<T>>
-
-type DeterminePropType<T extends Prop> = T['type'] extends AttachmentProp
-  ? DiscordAttachment
-  : T['type'] extends BooleanConstructor
-    ? boolean
-    : T['type'] extends ChannelProp
-      ? DiscordChannel
-      : T['type'] extends NumberConstructor
-        ? number
-        : T['type'] extends RoleProp
-          ? DiscordRole
-          : T['type'] extends StringConstructor
-            ? string
-            : T['type'] extends UserProp
-              ? DiscordUser
-              : never
+/**
+ * ATTACHMENT
+ * @description {@link https://discord.com/developers/docs/resources/message#attachment-object|attachment} object
+ */
+export const Attachment = Symbol('attachment')
+type AttachmentOption = CommandOption<typeof Attachment, DiscordAttachment>
 
 /**
- * Utility to extract types from props definition.
+ * BOOLEAN
  */
-export type ExtractProps<T extends Props> = {
-  [K in keyof Pick<T, RequiredProps<T>>]: DeterminePropType<T[K]>
+type BooleanOption = CommandOption<BooleanConstructor, boolean>
+
+/**
+ * CHANNEL
+ * @description Includes all channel types + categories
+ */
+export const Channel = Symbol('channel')
+interface ChannelOption extends CommandOption<typeof Channel, DiscordChannel> {
+  /**
+   * The channels shown will be restricted to these types.
+   */
+  channelTypes?: ChannelType[]
+}
+
+/**
+ * MENTIONABLE
+ * @description Includes users and roles
+ */
+export const Mentionable = Symbol('mentionable')
+type MentionableOption = CommandOption<typeof Mentionable, DiscordMember | DiscordRole | DiscordUser>
+
+/**
+ * NUMBER
+ * @description Any number between -2^53 and 2^53
+ */
+interface NumberOption extends CommandOption<NumberConstructor, number> {
+  /**
+   * The minimum value permitted.
+   */
+  minValue?: number
+  /**
+   * The maximum value permitted.
+   */
+  maxValue?: number
+}
+
+/**
+ * ROLE
+ */
+export const Role = Symbol('role')
+type RoleOption = CommandOption<typeof Role, DiscordRole>
+
+/**
+ * STRING
+ */
+interface StringOption extends CommandOption<StringConstructor, string> {
+  /**
+   * The minimum allowed length.
+   */
+  minLength?: number
+  /**
+   * The maximum allowed length.
+   */
+  maxLength?: number
+}
+
+/**
+ * USER
+ */
+export const User = Symbol('user')
+type UserOption = CommandOption<typeof User, DiscordMember | DiscordUser>
+
+// Application Command Option
+type Option
+  = | AttachmentOption
+    | BooleanOption
+    | ChannelOption
+    | MentionableOption
+    | NumberOption
+    | RoleOption
+    | StringOption
+    | UserOption
+
+// Application Command Options
+export type Options = Record<string, Option>
+
+// Determine the runtime type for a DJS option.
+type DetermineOptionType<T extends Option> = T extends CommandOption<any, infer B> ? B : never
+
+// Retrieves the required and optional options from a Options object.
+type RequiredOptions<T extends Options> = { [K in keyof T]: T[K] extends { required: true } ? K : never }[keyof T]
+type OptionalOptions<T extends Options> = Exclude<keyof T, RequiredOptions<T>>
+
+/**
+ * Utility to extract types from options definition.
+ */
+export type ExtractOptions<T extends Options> = {
+  [K in keyof Pick<T, RequiredOptions<T>>]: DetermineOptionType<T[K]>
 } & {
-  [K in keyof Pick<T, OptionalProps<T>>]?: DeterminePropType<T[K]>
+  [K in keyof Pick<T, OptionalOptions<T>>]?: DetermineOptionType<T[K]>
 }

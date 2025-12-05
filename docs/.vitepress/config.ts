@@ -1,10 +1,10 @@
 import type { DefaultTheme } from 'vitepress'
-import { author, description, name, version } from 'lumex/package.json'
+import lumex from 'lumex/package.json' with { type: 'json' }
 import { defineConfig } from 'vitepress'
 
 const Nav: DefaultTheme.NavItem[] = [
   {
-    text: `v${version}`,
+    text: `v${lumex.version}`,
     items: [
       {
         text: 'Release Notes',
@@ -20,17 +20,17 @@ const Nav: DefaultTheme.NavItem[] = [
 
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
-  title: name,
-  description,
+  title: lumex.name,
+  description: lumex.description,
   srcDir: 'src',
   head: [
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
-    ['meta', { rel: 'author', content: author }],
+    ['meta', { rel: 'author', content: lumex.author }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { name: 'og:title', content: name }],
-    ['meta', { name: 'og:description', content: description }],
+    ['meta', { name: 'og:title', content: lumex.name }],
+    ['meta', { name: 'og:description', content: lumex.description }],
     ['meta', { name: 'og:locale', content: 'en-GB' }],
-    ['meta', { name: 'og:site_name', content: name }],
+    ['meta', { name: 'og:site_name', content: lumex.name }],
   ],
   lang: 'en-GB',
   lastUpdated: true,

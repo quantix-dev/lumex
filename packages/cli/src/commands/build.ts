@@ -1,5 +1,5 @@
 import { env } from 'node:process'
-import { intro } from '@clack/prompts'
+import { intro, outro } from '@clack/prompts'
 import { defineCommand } from 'citty'
 import { importLumex } from '../utils/resolve.ts'
 
@@ -20,9 +20,10 @@ export default defineCommand({
 
     // Load lumex
     const core = await importLumex(cwd)
-    const lumex = core.loadLumex(cwd)
+    const lumex = await core.loadLumex(cwd)
 
     // Start build
-    core.build(lumex)
+    await core.build(lumex)
+    outro('Build successfully completed.')
   },
 })

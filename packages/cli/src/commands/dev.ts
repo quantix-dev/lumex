@@ -18,9 +18,9 @@ export default defineCommand({
 
     // Load lumex
     const core = await importLumex(cwd)
-    const lumex = core.loadLumex(cwd)
+    const lumex = await core.loadLumex(cwd)
 
     // Start build
-    core.build(lumex)
+    await core.build(lumex)
   },
 })

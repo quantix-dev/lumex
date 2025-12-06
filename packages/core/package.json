@@ -63,6 +63,7 @@
     "@parcel/watcher": "catalog:",
     "c12": "catalog:",
     "consola": "catalog:",
+    "rolldown": "catalog:",
     "scule": "catalog:"
   },
   "devDependencies": {

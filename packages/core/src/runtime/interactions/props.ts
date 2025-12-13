@@ -1,4 +1,5 @@
 import type {
+  ApplicationCommandOptionChoiceData,
   ChannelType,
   Attachment as DiscordAttachment,
   Channel as DiscordChannel,
@@ -34,20 +35,46 @@ interface CommandOption<T, _Value> {
 }
 
 /**
+ * autocomplete
+ * @description Application Command Option that supports Autocomplete.
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#autocomplete}
+ */
+interface AutocompleteOption<T, Value> extends CommandOption<T, Value> {
+  autocomplete?: (value: Value) => Value[]
+}
+
+/**
+ * choices
+ * @description Application Command Option with set choices.
+ */
+interface ChoicesOption<T, Value extends string | number> extends CommandOption<T, Value> {
+  /**
+   * choices
+   * @description Choices for the user to pick from, max 25.
+   */
+  choices?: ApplicationCommandOptionChoiceData<Value>
+}
+
+type PrimitiveOption<T, Value extends string | number> = AutocompleteOption<T, Value> | ChoicesOption<T, Value>
+
+/**
  * ATTACHMENT
- * @description {@link https://discord.com/developers/docs/resources/message#attachment-object|attachment} object
+ * @description {@link https://discord.com/developers/docs/resources/message#attachment-object|attachment} object.
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
 export const Attachment = Symbol('attachment')
 type AttachmentOption = CommandOption<typeof Attachment, DiscordAttachment>
 
 /**
  * BOOLEAN
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
 type BooleanOption = CommandOption<BooleanConstructor, boolean>
 
 /**
  * CHANNEL
- * @description Includes all channel types + categories
+ * @description Includes all channel types + categories.
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
 export const Channel = Symbol('channel')
 interface ChannelOption extends CommandOption<typeof Channel, DiscordChannel> {
@@ -60,16 +87,18 @@ interface ChannelOption extends CommandOption<typeof Channel, DiscordChannel> {
 
 /**
  * MENTIONABLE
- * @description Includes users and roles
+ * @description Includes users and roles.
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
 export const Mentionable = Symbol('mentionable')
 type MentionableOption = CommandOption<typeof Mentionable, DiscordMember | DiscordRole | DiscordUser>
 
 /**
  * NUMBER
- * @description Any number between -2^53 and 2^53
+ * @description Any number between -2^53 and 2^53.
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-interface NumberOption extends CommandOption<NumberConstructor, number> {
+type NumberOption = PrimitiveOption<NumberConstructor, number> & {
   /**
    * min_value
    * @description The minimum value permitted
@@ -85,14 +114,16 @@ interface NumberOption extends CommandOption<NumberConstructor, number> {
 
 /**
  * ROLE
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
 export const Role = Symbol('role')
 type RoleOption = CommandOption<typeof Role, DiscordRole>
 
 /**
  * STRING
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-interface StringOption extends CommandOption<StringConstructor, string> {
+type StringOption = PrimitiveOption<StringConstructor, string> & {
   /**
    * min_length
    * @description The minimum allowed length. (minimum of `0`, maximum of `6000`)
@@ -108,6 +139,7 @@ interface StringOption extends CommandOption<StringConstructor, string> {
 
 /**
  * USER
+ * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
 export const User = Symbol('user')
 type UserOption = CommandOption<typeof User, DiscordMember | DiscordUser>

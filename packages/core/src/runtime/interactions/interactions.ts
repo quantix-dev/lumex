@@ -1,4 +1,4 @@
-import type { InteractionContextType, SlashCommandBuilder } from 'discord.js'
+import type { InteractionContextType, Permissions, SlashCommandBuilder } from 'discord.js'
 import type { ExtractOptions, Options } from './props.ts'
 
 /**
@@ -9,10 +9,17 @@ import type { ExtractOptions, Options } from './props.ts'
 interface ApplicationCommand {
   /**
    * name
-   * @description {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-naming|Name of command}, 1-32 characters
+   * @description {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-naming|Name of command}, 1-32 characters.
    * @see {@link SlashCommandBuilder.name}
    */
   name: string
+
+  /**
+   * default_member_permissions
+   * @description Set of {@link https://discord.com/developers/docs/topics/permissions|permissions} represented as a bit set.
+   * @see {@link SlashCommandBuilder.default_member_permissions}
+   */
+  defaultMemberPermissions?: Permissions
 
   /**
    * contexts
@@ -23,7 +30,7 @@ interface ApplicationCommand {
 
   /**
    * nsfw
-   * @description Indicates whether the command is {@link https://discord.com/developers/docs/interactions/application-commands#agerestricted-commands|age-restricted}
+   * @description Indicates whether the command is {@link https://discord.com/developers/docs/interactions/application-commands#agerestricted-commands|age-restricted}.
    * @see {@link SlashCommandBuilder.nsfw}
    * @default false
    */
@@ -32,19 +39,19 @@ interface ApplicationCommand {
 
 /**
  * CHAT_INPUT
- * @description Slash commands; a text-based command that shows up when a user types `/`
+ * @description Slash commands; a text-based command that shows up when a user types `/`.
  */
-interface ChatInputCommand<T extends Options> extends ApplicationCommand {
+interface ChatInputCommand<T extends Options, Extracted = ExtractOptions<T>> extends ApplicationCommand {
   /**
    * description
-   * @description Description for `CHAT_INPUT` commands, 1-100 characters
+   * @description Description for `CHAT_INPUT` commands, 1-100 characters.
    * @see {@link SlashCommandBuilder.description}
    */
   description?: string
 
   /**
    * options
-   * @description Parameters for the command, max of 25
+   * @description Parameters for the command, max of 25.
    * @see {@link SlashCommandBuilder.options}
    */
   options?: T
@@ -54,7 +61,7 @@ interface ChatInputCommand<T extends Options> extends ApplicationCommand {
    * @description Parameters for the command.
    * @param options The interaction options.
    */
-  execute: (options: ExtractOptions<T>) => Promise<void>
+  execute: (options: Extracted) => Promise<void>
 }
 
 /**

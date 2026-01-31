@@ -2,8 +2,10 @@
   "typescript.tsdk": "node_modules/typescript/lib",
 
   // Formatting
+  "editor.insertSpaces": true,
   "editor.tabSize": 2,
   "files.eol": "\n",
+  "files.insertFinalNewline": true,
 
   // Disable automatic indentation override
   "[typescript]": {

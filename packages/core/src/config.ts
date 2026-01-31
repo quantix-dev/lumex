@@ -37,7 +37,7 @@ interface RuntimeConfig {
   devGuild?: string
 }
 
-interface _LumexConfig {
+interface InternalLumexConfig {
   /**
    * The name of the bot.
    */
@@ -57,9 +57,9 @@ interface _LumexConfig {
 /**
  * Configuration for the Lumex library.
  */
-export type LumexConfig = InputConfig<_LumexConfig>
+export type LumexConfig = InputConfig<InternalLumexConfig>
 
 /**
  * Define Lumex config.
  */
-export const defineLumexConfig = createDefineConfig<_LumexConfig>()
+export const defineLumexConfig = createDefineConfig<InternalLumexConfig>()

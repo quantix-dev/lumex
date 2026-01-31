@@ -47,8 +47,5 @@
     "consola": "catalog:",
     "exsolve": "catalog:",
     "tsdown": "catalog:"
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }

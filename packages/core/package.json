@@ -68,8 +68,5 @@
   },
   "devDependencies": {
     "tsdown": "catalog:"
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }

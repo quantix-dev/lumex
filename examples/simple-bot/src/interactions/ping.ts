@@ -1,4 +1,4 @@
-import { defineInteraction } from 'lumex/runtime'
+import { defineInteraction } from 'lumex'
 
 export default defineInteraction({
   name: 'ping',

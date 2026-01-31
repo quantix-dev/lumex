@@ -1,24 +1,30 @@
-import type {
-  ApplicationCommandOptionChoiceData,
-  ChannelType,
-  Attachment as DiscordAttachment,
-  Channel as DiscordChannel,
-  GuildMember as DiscordMember,
-  Role as DiscordRole,
-  User as DiscordUser,
-} from 'discord.js'
+import type { ApplicationCommandOptionChoiceData, Attachment, Channel, ChannelType, GuildMember, Role, User } from 'discord.js'
+
+// Available option types
+export enum PropType {
+  Attachment,
+  Boolean,
+  Channel,
+  Mentionable,
+  Number,
+  Role,
+  String,
+  User,
+}
+
+// #region Base Types
 
 /**
  * Application Command Option
  * @description Parameters for the command.
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-structure}
  */
-interface CommandOption<T, _Value> {
+interface CommandOption {
   /**
    * type
    * @description Type of option.
    */
-  type: T
+  type: PropType
 
   /**
    * description
@@ -39,15 +45,15 @@ interface CommandOption<T, _Value> {
  * @description Application Command Option that supports Autocomplete.
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#autocomplete}
  */
-interface AutocompleteOption<T, Value> extends CommandOption<T, Value> {
-  autocomplete?: (value: Value) => Value[]
+interface AutocompleteOption<Value extends string | number> extends CommandOption {
+  autocomplete?: (value: Value) => Value[] | Promise<Value[]>
 }
 
 /**
  * choices
  * @description Application Command Option with set choices.
  */
-interface ChoicesOption<T, Value extends string | number> extends CommandOption<T, Value> {
+interface ChoicesOption<Value extends string | number> extends CommandOption {
   /**
    * choices
    * @description Choices for the user to pick from, max 25.
@@ -55,29 +61,40 @@ interface ChoicesOption<T, Value extends string | number> extends CommandOption<
   choices?: ApplicationCommandOptionChoiceData<Value>
 }
 
-type PrimitiveOption<T, Value extends string | number> = AutocompleteOption<T, Value> | ChoicesOption<T, Value>
+/**
+ * Primitive options support autocomplete and choices.
+ */
+type PrimitiveOption<Value extends string | number> = AutocompleteOption<Value> | ChoicesOption<Value>
+
+// #endregion
+
+// #region Option Types
 
 /**
  * ATTACHMENT
  * @description {@link https://discord.com/developers/docs/resources/message#attachment-object|attachment} object.
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-export const Attachment = Symbol('attachment')
-type AttachmentOption = CommandOption<typeof Attachment, DiscordAttachment>
+interface AttachmentOption extends CommandOption {
+  type: PropType.Attachment
+}
 
 /**
  * BOOLEAN
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-type BooleanOption = CommandOption<BooleanConstructor, boolean>
+interface BooleanOption extends CommandOption {
+  type: PropType.Boolean
+}
 
 /**
  * CHANNEL
  * @description Includes all channel types + categories.
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-export const Channel = Symbol('channel')
-interface ChannelOption extends CommandOption<typeof Channel, DiscordChannel> {
+interface ChannelOption extends CommandOption {
+  type: PropType.Channel
+
   /**
    * channel_types
    * @description The channels shown will be restricted to these types.
@@ -90,15 +107,18 @@ interface ChannelOption extends CommandOption<typeof Channel, DiscordChannel> {
  * @description Includes users and roles.
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-export const Mentionable = Symbol('mentionable')
-type MentionableOption = CommandOption<typeof Mentionable, DiscordMember | DiscordRole | DiscordUser>
+interface MentionableOption extends CommandOption {
+  type: PropType.Mentionable
+}
 
 /**
  * NUMBER
  * @description Any number between -2^53 and 2^53.
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-type NumberOption = PrimitiveOption<NumberConstructor, number> & {
+type NumberOption = PrimitiveOption<number> & {
+  type: PropType.Number
+
   /**
    * min_value
    * @description The minimum value permitted
@@ -116,14 +136,17 @@ type NumberOption = PrimitiveOption<NumberConstructor, number> & {
  * ROLE
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-export const Role = Symbol('role')
-type RoleOption = CommandOption<typeof Role, DiscordRole>
+interface RoleOption extends CommandOption {
+  type: PropType.Role
+}
 
 /**
  * STRING
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-type StringOption = PrimitiveOption<StringConstructor, string> & {
+type StringOption = PrimitiveOption<string> & {
+  type: PropType.String
+
   /**
    * min_length
    * @description The minimum allowed length. (minimum of `0`, maximum of `6000`)
@@ -141,8 +164,11 @@ type StringOption = PrimitiveOption<StringConstructor, string> & {
  * USER
  * @see {@link https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-option-type}
  */
-export const User = Symbol('user')
-type UserOption = CommandOption<typeof User, DiscordMember | DiscordUser>
+interface UserOption extends CommandOption {
+  type: PropType.User
+}
+
+// #endregion
 
 // Application Command Option
 type Option
@@ -155,13 +181,27 @@ type Option
     | StringOption
     | UserOption
 
-// Application Command Options
-export type Options = Record<string, Option>
-
 // Determine the runtime type for a DJS option.
-type DetermineOptionType<T extends Option> = T extends CommandOption<any, infer B> ? B : never
+type DetermineOptionType<T extends Option> = T['type'] extends PropType.Attachment
+  ? Attachment
+  : T['type'] extends PropType.Boolean
+    ? boolean
+    : T['type'] extends PropType.Channel
+      ? Channel
+      : T['type'] extends PropType.Mentionable
+        ? GuildMember | Role | User
+        : T['type'] extends PropType.Number
+          ? number
+          : T['type'] extends PropType.Role
+            ? Role
+            : T['type'] extends PropType.String
+              ? string
+              : T['type'] extends PropType.User
+                ? GuildMember | User
+                : never
 
-// Retrieves the required and optional options from a Options object.
+// Options object
+export type Options = Record<string, Option>
 type RequiredOptions<T extends Options> = { [K in keyof T]: T[K] extends { required: true } ? K : never }[keyof T]
 type OptionalOptions<T extends Options> = Exclude<keyof T, RequiredOptions<T>>
 

@@ -1,5 +1,5 @@
 import type { InteractionContextType, Permissions, SlashCommandBuilder } from 'discord.js'
-import type { ExtractOptions, Options } from './props.ts'
+import type { ExtractOptions, Options } from './options.ts'
 
 /**
  * Application Command

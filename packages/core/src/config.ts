@@ -51,7 +51,7 @@ interface InternalLumexConfig {
   /**
    * Runtime bot configuration.
    */
-  runtime: EnvConfig<RuntimeConfig>
+  runtime?: EnvConfig<RuntimeConfig>
 }
 
 /**

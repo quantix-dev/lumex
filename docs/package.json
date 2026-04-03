@@ -22,8 +22,5 @@
     "lumex": "workspace:*",
     "vitepress": "catalog:",
     "vue": "catalog:"
-  },
-  "volta": {
-    "extends": "../package.json"
   }
 }

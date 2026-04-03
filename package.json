@@ -2,10 +2,8 @@
   "name": "lumex",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.28.1",
   "scripts": {
     "build": "pnpm --filter './packages/*' prepack",
-    "cleanup": "rimraf --glob '{docs,examples,packages}/*/{node_modules,dist}' 'node_modules'",
     "coverage": "vitest run --coverage",
     "dev": "pnpm -r --filter './packages/*' --parallel prepack --watch",
     "lint": "eslint . --cache",
@@ -22,7 +20,6 @@
     "eslint-plugin-format": "catalog:",
     "husky": "catalog:",
     "lumex": "workspace:*",
-    "rimraf": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
